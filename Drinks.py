@@ -19,17 +19,22 @@ class drink():
 
         if str(self.size).strip(" ").upper() == 'LARGE':
             lookup = 0
-        elif str(self.size).strip(" ").upper() == 'MEDIUM':
+        elif self.get_size__upper_case(self.size) == 'MEDIUM':
             lookup = 1
         else:
             lookup = 2
         for key, data in self.products.items():
             if key == str(self.name).strip(" ").lower():
-                total_price = int(quantity) * self.products[key][lookup]
+                total_price = self.get_int_quantity(quantity) * self.products[key][lookup]
                 return total_price
 
+    @staticmethod
+    def get_int_quantity(quantity):
+        return int(quantity)
 
-
+    @staticmethod
+    def get_size__upper_case(size):
+        return str(size).strip(" ").upper()
 
 
 
