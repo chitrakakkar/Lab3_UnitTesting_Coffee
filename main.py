@@ -1,4 +1,4 @@
-from Drinks import Drink
+from drink import *
 
 
 def get_user_int(message):
@@ -26,7 +26,7 @@ def get_string_input(message):
 
 
 def main():
-    drink_list = drink.get_products()
+    drink_list = Drink.products
     print("Drink-List: ", str(drink_list) + "\n")
     drink_name = get_string_input("Enter the drink you want from the list")
     drink_size = get_string_input("What size do you want? ")
