@@ -1,9 +1,10 @@
+
 class drink():
     def __init__(self, name, size):
         self.name = name
         self.size = size
 
-    def calculate_price(self, name, size, quantity):
+    def calculate_price(self, quantity):
         """ The prices are listed like 'Large','Medium','Small'
          'Look -up is the index of price ar per the size """
 
@@ -13,14 +14,14 @@ class drink():
                     "cappuccino": [4.85, 3.28, 2.95],
                     "espresso": [4.35, 3.63, 2.45]}
 
-        if str(size).strip(" ").upper() == 'LARGE':
+        if str(self.size).strip(" ").upper() == 'LARGE':
             lookup = 0
-        elif str(size).strip(" ").upper() == 'MEDIUM':
+        elif str(self.size).strip(" ").upper() == 'MEDIUM':
             lookup = 1
         else:
             lookup = 2
         for key, data in products.items():
-            if key == str(name).strip(" ").lower():
+            if key == str(self.name).strip(" ").lower():
                 total_price = int(quantity) * products[key][lookup]
                 return total_price
 

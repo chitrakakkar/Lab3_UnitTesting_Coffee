@@ -31,7 +31,8 @@ def main():
     drink_name = get_string_input("Enter the drink you want from the list")
     drink_size = get_string_input("What size do you want? ")
     drink_quantity = get_user_int("enter the quantity")
-    price = drink.calculate_price(" ", drink_name, drink_size, drink_quantity)
+    d= drink(drink_name,drink_size)
+    price = d.calculate_price(drink_quantity)
     print(" The total price for the drink ->", drink_name + " is " + str(price))
 
 
