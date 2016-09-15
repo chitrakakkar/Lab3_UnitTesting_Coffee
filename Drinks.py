@@ -1,5 +1,5 @@
 
-class drink():
+class Drink:
     def __init__(self, name, size):
         self.name = name
         self.size = size
@@ -14,19 +14,24 @@ class drink():
                     "cappuccino": [4.85, 3.28, 2.95],
                     "espresso": [4.35, 3.63, 2.45]}
 
-        if str(self.size).strip(" ").upper() == 'LARGE':
+        if self.get_size__upper_case(self.size) == 'LARGE':
             lookup = 0
-        elif str(self.size).strip(" ").upper() == 'MEDIUM':
+        elif self.get_size__upper_case(self.size) == 'MEDIUM':
             lookup = 1
         else:
             lookup = 2
         for key, data in products.items():
             if key == str(self.name).strip(" ").lower():
-                total_price = int(quantity) * products[key][lookup]
+                total_price = self.get_int_quantity(quantity) * products[key][lookup]
                 return total_price
 
+    @staticmethod
+    def get_int_quantity(quantity):
+        return int(quantity)
 
-
+    @staticmethod
+    def get_size__upper_case(size):
+        return str(size).strip(" ").upper()
 
 
 
