@@ -1,5 +1,5 @@
 import unittest
-from Drinks import Drink
+from drink import Drink
 
 
 class PriceTest(unittest.TestCase):
