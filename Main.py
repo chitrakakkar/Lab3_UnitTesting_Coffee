@@ -26,7 +26,7 @@ def get_string_input(message):
 
 
 def main():
-    drink_list = drink.get_products()
+    drink_list = Drink.get_products()
     print("Drink-List: ", str(drink_list) + "\n")
     drink_name = get_string_input("Enter the drink you want from the list")
     drink_size = get_string_input("What size do you want? ")

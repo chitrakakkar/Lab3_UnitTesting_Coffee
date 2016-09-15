@@ -1,5 +1,6 @@
-class drink():
-    #comment from branden
+class Drink():
+
+    # comment from branden
 
     products = {"coffee": [5.45, 4.15, 3.25],
                 "mocha": [4.65, 3.78, 2.65],
@@ -11,8 +12,9 @@ class drink():
         self.name = name
         self.size = size
 
-    def get_products(self):
-        return self.products
+    @staticmethod
+    def get_products():
+        return Drink.products
 
     def calculate_price(self, quantity):
         """ The prices are listed like 'Large','Medium','Small'
