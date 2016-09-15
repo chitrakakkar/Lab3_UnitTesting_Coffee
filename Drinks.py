@@ -37,6 +37,11 @@ class drink():
     def get_size__upper_case(size):
         return str(size).strip(" ").upper()
 
+    @staticmethod
+    def get_positive_quantity(quantity):
+        return abs(quantity)
+
+
 
 
 
