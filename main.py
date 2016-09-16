@@ -1,4 +1,4 @@
-from drink import *
+from drink import Drink
 
 
 def get_user_int(message):
@@ -28,12 +28,23 @@ def get_string_input(message):
 def main():
     drink_list = Drink.products
     print("Drink-List: ", str(drink_list) + "\n")
-    drink_name = get_string_input("Enter the drink you want from the list")
-    drink_size = get_string_input("What size do you want? ")
-    drink_quantity = get_user_int("enter the quantity")
-    d = Drink(drink_name, drink_size)
-    price = d.calculate_price(drink_quantity)
-    print(" The total price for the drink ->", drink_name + " is " + str(price))
-
+    while True:
+        drink_name = get_string_input("Enter the drink you want from the list")
+        if drink_name in drink_list:
+            while True:
+                    drink_size = get_string_input("What size do you want? ")
+                    if str(drink_size).upper() in {"LARGE", "MEDIUM", "SMALL"}:
+                        drink_quantity = get_user_int("enter the quantity")
+                        d = Drink(drink_name, drink_size)
+                        price = d.calculate_price(drink_quantity)
+                        print(" The total price for the drink ->", drink_name + " is " + str(price))
+                        break
+                    else:
+                        print(" Only Large/Medium/Small sizes are available !!! ")
+                        continue
+            break
+        else:
+            print("No such drink exists !!! choose from the List")
+            continue
 
 main()

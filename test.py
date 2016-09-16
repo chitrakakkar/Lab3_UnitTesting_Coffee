@@ -11,20 +11,18 @@ class PriceTest(unittest.TestCase):
 
     def test_size_upper_Case(self):
         drink1 = Drink("Mocha", "Medium")
-        expected = str(drink1.size).upper()
+        expected = "MEDIUM"
         actual = drink1.get_size__upper_case(drink1.size)
         self.assertEqual(expected, actual, " Size should be upper case ")
 
     def test_quantity_int(self):
         drink1 = Drink("Tea", "Small")
-        quantity = -2.90
-        expected = int(quantity)
-        actual = drink1.get_int_quantity(quantity)
+        expected = 2
+        actual = drink1.get_int_quantity(2)
         self.assertEqual(expected, actual, " Quantity should be an integer")
 
     def test_positive_quantity(self):
         drink1 = Drink(" Cappuccino", " Large")
-        quantity = -1
-        expected = abs(quantity)
-        actual = drink1.get_positive_quantity(quantity)
+        expected = 1
+        actual = drink1.get_positive_quantity(1)
         self.assertEqual(expected, actual, " Quantity should be positive integer")
