@@ -1,3 +1,5 @@
+""" This class displays the interface"""
+
 from drink import Drink
 
 
