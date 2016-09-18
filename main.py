@@ -17,6 +17,7 @@ def get_user_int(message):
 
 
 def get_string_input(message):
+    """ Returns a string input !!! error msg if None"""
     while True:
         user_input = input(('{}'.format(message)))
 
@@ -28,6 +29,8 @@ def get_string_input(message):
 
 
 def main():
+    """ This function gives the user to pick drinks from the list
+    Can select as many drink they want. In the end , displays the total Sum of prices"""
     drink_list = Drink.products
     print("Drink-List: ", str(drink_list) + "\n")
     while True:

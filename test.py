@@ -1,3 +1,5 @@
+""" This tests the possible bugs in the program"""
+
 import unittest
 from drink import Drink
 
