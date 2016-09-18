@@ -31,16 +31,25 @@ def main():
     drink_list = Drink.products
     print("Drink-List: ", str(drink_list) + "\n")
     while True:
-        drink_name = get_string_input("Enter the drink you want from the list")
-        if drink_name in drink_list:
-            while True:
+        Sum = 0
+        while True:
+            drink_name = get_string_input("Enter the drink you want from the list")
+            if drink_name in drink_list:
                     drink_size = get_string_input("What size do you want? ")
                     if str(drink_size).upper() in {"LARGE", "MEDIUM", "SMALL"}:
                         drink_quantity = get_user_int("enter the quantity")
                         d = Drink(drink_name, drink_size)
                         price = d.calculate_price(drink_quantity)
-                        print(" The total price for the drink ->", drink_name + " is " + str(price))
-                        break
+                        Sum = Sum + price
+                        more_drink = get_string_input("DO you want anything more ? (Y/N)")
+                        if str(more_drink).upper() == 'Y':
+                                continue
+                        elif str(more_drink).upper() == 'N':
+                            print("The total for all the drink is", round(Sum, 2))
+                            break
+                        else:
+                            print("Invalid entry")
+                            continue
                     else:
                         print(" Only Large/Medium/Small sizes are available !!! ")
                         continue
@@ -48,5 +57,7 @@ def main():
         else:
             print("No such drink exists !!! choose from the List")
             continue
+        break
+
 
 main()
