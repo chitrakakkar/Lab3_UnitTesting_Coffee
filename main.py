@@ -77,12 +77,12 @@ def main():
 
                 else:
                     print("Invalid entry")
-                    # continue
 
             else:
                 print("No such drink exists !!! choose from the List")
-                # continue
+
         break
 
 
-main()
+if __name__ == '__main__':
+    main()

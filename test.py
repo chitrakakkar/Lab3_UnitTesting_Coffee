@@ -48,20 +48,22 @@ class PriceTest(unittest.TestCase):
         actual = drink1.products["mocha"][2]
         self.assertEqual(expected,actual, " The price for small mocha should be $2.65")
 
-    def valid_drink_check(self):
+    def test_valid_drink_check(self):
         # tests if the drink name is valid
         drink1 = Drink("Tea", "Medium")
-        expected = ["coffee", "mocha", "tea", "cappuccino", "espresso"]
-        actual = (drink1.products.keys())
-        self.assertListEqual(expected, actual)
+        expected = sorted(["coffee", "mocha", "tea", "cappuccino", "espresso"])
+        actual = sorted(list(drink1.products.keys()))
+        self.assertListEqual(expected, actual, " The list should be equal")
 
-    def valid_product_list(self):
+
+    def test_valid_product_list(self):
+        drink1 = Drink("Mocha", "Small")
         dict = {"coffee": [5.45, 4.15, 3.25],
                 "mocha": [4.65, 3.78, 2.65],
                 "tea": [4.23, 3.34, 2.54],
                 "cappuccino": [4.85, 3.28, 2.95],
                 "espresso": [4.35, 3.63, 2.45]}
-        actual = Drink.products
+        actual = Drink.get_products(drink1)
         self.assertEqual(dict, actual, " Product list has some error")
 
 
