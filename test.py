@@ -14,6 +14,12 @@ class PriceTest(unittest.TestCase):
         actual = drink1.calculate_price(1)
         self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
 
+    def test_calculate_quantity_price(self):
+        drink1 = Drink("Tea", "small")
+        expected = 5.08
+        actual = drink1.calculate_price(2)
+        self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
+
     def test_size_upper_Case(self):
         # tests if the size entered is in upper-case
         drink1 = Drink("Mocha", "Medium")
