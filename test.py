@@ -28,3 +28,9 @@ class PriceTest(unittest.TestCase):
         expected = 1
         actual = drink1.get_positive_quantity(1)
         self.assertEqual(expected, actual, " Quantity should be positive integer")
+
+    def test_valid_price_check(self):
+        drink1 = Drink("Mocha", " Small")
+        expected = 2.65
+        actual = drink1.products["mocha"][2]
+        self.assertEqual(expected,actual, " The price for small mocha should be $2.65")
