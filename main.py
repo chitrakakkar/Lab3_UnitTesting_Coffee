@@ -10,6 +10,9 @@ def get_user_int(message):
         user_input = input('{}: '.format(message))
         try:
             number = int(user_input)
+            if number < 0:
+                print("Enter a positive quantity")
+                continue
         except ValueError:
             print('You must enter a whole number.')
             continue
@@ -46,7 +49,7 @@ def main():
                         Sum = Sum + price
                         more_drink = get_string_input("DO you want anything more ? (Y/N)")
                         if str(more_drink).upper() == 'Y':
-                                continue
+                            continue
                         elif str(more_drink).upper() == 'N':
                             print("The total for all the drink is", round(Sum, 2))
                             break
@@ -56,10 +59,10 @@ def main():
                     else:
                         print(" Only Large/Medium/Small sizes are available !!! ")
                         continue
-            break
-        else:
-            print("No such drink exists !!! choose from the List")
-            continue
+                    break
+            else:
+                print("No such drink exists !!! choose from the List")
+                continue
         break
 
 

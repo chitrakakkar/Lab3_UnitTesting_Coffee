@@ -6,6 +6,8 @@ from main import *
 
 
 class PriceTest(unittest.TestCase):
+    # tests the quantity of the large coffee is 5.45
+    # can test that for each drink for each size
     def test_calculate_quantity_price(self):
         drink1 = Drink("Coffee", "Large")
         expected = 5.45
@@ -13,18 +15,21 @@ class PriceTest(unittest.TestCase):
         self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
 
     def test_size_upper_Case(self):
+        # tests if the size entered is in upper-case
         drink1 = Drink("Mocha", "Medium")
         expected = "MEDIUM"
         actual = drink1.get_size__upper_case(drink1.size)
         self.assertEqual(expected, actual, " Size should be upper case ")
 
     def test_quantity_int(self):
+        # checks if the quantity is an integer
         drink1 = Drink("Tea", "Small")
         expected = 2
         actual = drink1.get_int_quantity(2)
         self.assertEqual(expected, actual, " Quantity should be an integer")
 
     def test_positive_quantity(self):
+        # Quantity should be +ve
         drink1 = Drink(" Cappuccino", " Large")
         expected = 1
         actual = drink1.get_positive_quantity(1)
@@ -39,5 +44,9 @@ class PriceTest(unittest.TestCase):
     def valid_drink_check(self):
         drink1 = Drink("Tea", "Medium")
         expected = ["coffee", "mocha", "tea", "cappuccino", "espresso"]
-        actual = list(drink1.products.keys())
+        actual = (drink1.products.keys())
         self.assertListEqual(expected, actual)
+
+
+
+
