@@ -41,29 +41,26 @@ def main():
         while True:
             drink_name = get_string_input("Enter the drink you want from the list")
             if drink_name in drink_list:
-                   while True:
-                        drink_size = get_string_input("What size do you want? ")
-                        # checks if the size entered by the user is in the list
-                        if str(drink_size).upper() in {"LARGE", "MEDIUM", "SMALL"}:
-                            drink_quantity = get_user_int("enter the quantity")
-                            d = Drink(drink_name, drink_size)
-                            price = d.calculate_price(drink_quantity)
-                            Sum = Sum + price  # Calculates sum for all the drinks
-                            more_drink = get_string_input("DO you want anything more ? (Y/N)")
-                            if str(more_drink).upper() == 'Y':
-                                continue
-                            elif str(more_drink).upper() == 'N':
-                                print("The total for all the drink is", round(Sum, 2))
-                                break
-                            else:
-                                print("Invalid entry")
-                                continue
-                        else:
-                            print(" Only Large/Medium/Small sizes are available !!! ")
+                    drink_size = get_string_input("What size do you want? ")
+                    # checks if the size entered by the user is in the list
+                    if str(drink_size).upper() in {"LARGE", "MEDIUM", "SMALL"}:
+                        drink_quantity = get_user_int("enter the quantity")
+                        d = Drink(drink_name, drink_size)
+                        price = d.calculate_price(drink_quantity)
+                        Sum = Sum + price  # Sum for all the drink
+                        more_drink = get_string_input("DO you want anything more ? (Y/N)")
+                        if str(more_drink).upper() == 'Y':
                             continue
-
-                        break
-                   break
+                        elif str(more_drink).upper() == 'N':
+                            print("The total for all the drink is", round(Sum, 2))
+                            break
+                        else:
+                            print("Invalid entry")
+                            continue
+                    else:
+                        print(" Only Large/Medium/Small sizes are available !!! ")
+                        continue
+                    break
             else:
                 print("No such drink exists !!! choose from the List")
                 continue
