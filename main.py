@@ -10,8 +10,8 @@ def get_user_int(message):
         user_input = input('{}: '.format(message))
         try:
             number = int(user_input)
-            if number < 0:
-                print("Enter a positive quantity")
+            if number <= 0:
+                print("Enter a positive or greater than 0")
                 continue
         except ValueError:
             print('You must enter a whole number.')
@@ -40,6 +40,7 @@ def main():
         Sum = 0
         while True:
             drink_name = get_string_input("Enter the drink you want from the list")
+            # while
             if drink_name in drink_list:
                     drink_size = get_string_input("What size do you want? ")
                     # checks if the size entered by the user is in the list
