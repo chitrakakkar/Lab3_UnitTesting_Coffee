@@ -2,6 +2,7 @@
 
 import unittest
 from drink import Drink
+from main import *
 
 
 class PriceTest(unittest.TestCase):
@@ -34,3 +35,9 @@ class PriceTest(unittest.TestCase):
         expected = 2.65
         actual = drink1.products["mocha"][2]
         self.assertEqual(expected,actual, " The price for small mocha should be $2.65")
+
+    def valid_drink_check(self):
+        drink1 = Drink("Tea", "Medium")
+        expected = ["coffee", "mocha", "tea", "cappuccino", "espresso"]
+        actual = list(drink1.products.keys())
+        self.assertListEqual(expected, actual)
