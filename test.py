@@ -61,7 +61,7 @@ class PriceTest(unittest.TestCase):
                 "tea": [4.23, 3.34, 2.54],
                 "cappuccino": [4.85, 3.28, 2.95],
                 "espresso": [4.35, 3.63, 2.45]}
-        actual = Drink.getproduct()
+        actual = Drink.products
         self.assertEqual(dict, actual, " Product list has some error")
 
 

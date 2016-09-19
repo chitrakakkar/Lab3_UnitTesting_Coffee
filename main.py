@@ -31,39 +31,57 @@ def get_string_input(message):
             print("You must enter something")
 
 
+def get_size():
+    drink_size = ''
+    drink_sizes = ("LARGE", "MEDIUM", "SMALL")
+    while True:
+        selected = input("What size do you want?")
+        if selected.upper() in drink_sizes:
+            for size in drink_sizes:
+                if selected.upper() == size:
+                    drink_size = size
+                    break
+            break
+            
+        else:
+            print("Only Large/Medium/Small sizes are available")
+    return drink_size
+
+
 def main():
     """ This function gives the user to pick drinks from the list
     Can select as many drink they want. In the end , displays the total Sum of prices"""
     drink_list = Drink.products
     print("Drink-List: ", str(drink_list) + "\n")
     while True:
-        Sum = 0
+        sum_of_drinks = 0
+
         while True:
             drink_name = get_string_input("Enter the drink you want from the list")
             if drink_name in drink_list:
-                    drink_size = get_string_input("What size do you want? ")
-                    # checks if the size entered by the user is in the list
-                    if str(drink_size).upper() in {"LARGE", "MEDIUM", "SMALL"}:
-                        drink_quantity = get_user_int("enter the quantity")
-                        d = Drink(drink_name, drink_size)
-                        price = d.calculate_price(drink_quantity)
-                        Sum = Sum + price # Calculates sum for all the drinks
-                        more_drink = get_string_input("DO you want anything more ? (Y/N)")
-                        if str(more_drink).upper() == 'Y':
-                            continue
-                        elif str(more_drink).upper() == 'N':
-                            print("The total for all the drink is", round(Sum, 2))
-                            break
-                        else:
-                            print("Invalid entry")
-                            continue
-                    else:
-                        print(" Only Large/Medium/Small sizes are available !!! ")
-                        continue
+                drink_size = get_size()
+
+                # checks that the quantity is an integer
+                drink_quantity = get_user_int("enter the quantity")
+                d = Drink(drink_name, drink_size)
+                price = d.calculate_price(drink_quantity)
+                # calculates sum of all drinks
+                sum_of_drinks += price
+                more_drink = get_string_input("DO you want anything more ? (Y/N)")
+                if str(more_drink).upper() == 'Y':
+                    continue
+
+                elif str(more_drink).upper() == 'N':
+                    print("The total for all of the drinks is ", round(sum_of_drinks, 2))
                     break
+
+                else:
+                    print("Invalid entry")
+                    # continue
+
             else:
                 print("No such drink exists !!! choose from the List")
-                continue
+                # continue
         break
 
 
