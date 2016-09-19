@@ -14,7 +14,7 @@ class PriceTest(unittest.TestCase):
         actual = drink1.calculate_price(1)
         self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
 
-    def test_calculate_quantity_price(self):
+    def test2_calculate_quantity_price(self):
         drink1 = Drink("Tea", "small")
         expected = 5.08
         actual = drink1.calculate_price(2)
@@ -49,7 +49,7 @@ class PriceTest(unittest.TestCase):
         self.assertEqual(expected,actual, " The price for small mocha should be $2.65")
 
     def valid_drink_check(self):
-        # tests if the drink is valid
+        # tests if the drink name is valid
         drink1 = Drink("Tea", "Medium")
         expected = ["coffee", "mocha", "tea", "cappuccino", "espresso"]
         actual = (drink1.products.keys())

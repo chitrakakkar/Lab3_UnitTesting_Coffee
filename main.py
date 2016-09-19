@@ -10,8 +10,8 @@ def get_user_int(message):
         user_input = input('{}: '.format(message))
         try:
             number = int(user_input)
-            if number < 0:
-                print("Enter a positive quantity")
+            if number <= 0:
+                print("Enter a positive or greater than 0")
                 continue
         except ValueError:
             print('You must enter a whole number.')
@@ -42,7 +42,7 @@ def get_size():
                     drink_size = size
                     break
             break
-            
+
         else:
             print("Only Large/Medium/Small sizes are available")
     return drink_size
