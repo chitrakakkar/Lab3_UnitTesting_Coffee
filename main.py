@@ -31,6 +31,17 @@ def get_string_input(message):
             print("You must enter something")
 
 
+def get_drink():
+        drink_list = Drink.products
+        while True:
+            print("Drink-List: ", str(drink_list) + "\n")
+            drink = get_string_input("Enter the drink you want from the list")
+            if drink in drink_list:
+                return drink
+            else:
+                print("I'm sorry, we do not serve that here")
+
+
 def get_size():
     drink_size = ''
     drink_sizes = ("LARGE", "MEDIUM", "SMALL")
@@ -51,38 +62,28 @@ def get_size():
 def main():
     """ This function gives the user to pick drinks from the list
     Can select as many drink they want. In the end , displays the total Sum of prices"""
-    drink_list = Drink.products
-    print("Drink-List: ", str(drink_list) + "\n")
+    sum_of_drinks = 0
+
     while True:
-        sum_of_drinks = 0
+        drink_name = get_drink()
+        drink_size = get_size()
+        # checks that the quantity is an integer
+        drink_quantity = get_user_int("enter the quantity")
+        d = Drink(drink_name, drink_size)
+        price = d.calculate_price(drink_quantity)
+        # calculates sum of all drinks
+        sum_of_drinks += price
+        more_drink = get_string_input("DO you want anything more ? (Y/N)")
+        if str(more_drink).upper() == 'Y':
+            continue
 
-        while True:
-            drink_name = get_string_input("Enter the drink you want from the list")
-            if drink_name in drink_list:
-                drink_size = get_size()
+        elif str(more_drink).upper() == 'N':
+            print("The total for all of the drinks is $", round(sum_of_drinks, 2))
+            break
 
-                # checks that the quantity is an integer
-                drink_quantity = get_user_int("enter the quantity")
-                d = Drink(drink_name, drink_size)
-                price = d.calculate_price(drink_quantity)
-                # calculates sum of all drinks
-                sum_of_drinks += price
-                more_drink = get_string_input("DO you want anything more ? (Y/N)")
-                if str(more_drink).upper() == 'Y':
-                    continue
-
-                elif str(more_drink).upper() == 'N':
-                    print("The total for all of the drinks is ", round(sum_of_drinks, 2))
-                    break
-
-                else:
-                    print("Invalid entry")
-
-            else:
-                print("No such drink exists !!! choose from the List")
-
-        break
+        else:
+            print("Invalid entry")
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+main()

@@ -5,7 +5,7 @@ from drink import Drink
 from main import *
 
 
-class PriceTest(unittest.TestCase):
+class Test(unittest.TestCase):
     # tests the quantity of the large coffee is 5.45
     # can test that for each drink for each size
     def test_calculate_quantity_price(self):
@@ -55,7 +55,6 @@ class PriceTest(unittest.TestCase):
         actual = sorted(list(drink1.products.keys()))
         self.assertListEqual(expected, actual, " The list should be equal")
 
-
     def test_valid_product_list(self):
         drink1 = Drink("Mocha", "Small")
         dict = {"coffee": [5.45, 4.15, 3.25],
@@ -65,6 +64,9 @@ class PriceTest(unittest.TestCase):
                 "espresso": [4.35, 3.63, 2.45]}
         actual = Drink.get_products(drink1)
         self.assertEqual(dict, actual, " Product list has some error")
+
+    def test_get_string_input(self):
+        get_string_input()
 
 
 
