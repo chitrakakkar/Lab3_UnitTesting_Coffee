@@ -43,20 +43,14 @@ def get_drink():
 
 
 def get_size():
-    drink_size = ''
     drink_sizes = ("LARGE", "MEDIUM", "SMALL")
     while True:
-        selected = input("What size do you want?")
-        if selected.upper() in drink_sizes:
-            for size in drink_sizes:
-                if selected.upper() == size:
-                    drink_size = size
-                    break
-            break
+        drink_size = input("What size do you want?")
+        if drink_size.upper() in drink_sizes:
+            return drink_size
 
         else:
             print("Only Large/Medium/Small sizes are available")
-    return drink_size
 
 
 def main():
