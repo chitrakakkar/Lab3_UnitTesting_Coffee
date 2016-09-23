@@ -6,12 +6,12 @@ class TestFood(TestCase):
     def test_isInteger(self):
         # tests if the entered number is an integer
         self.assertEqual(4, Food.get_int_quantity(4))
-        self.assertFalse(4, Food.get_int_quantity(10))
+        self.assertNotEqual(4, Food.get_int_quantity(10))
 
     def test_isPositive(self):
         # tests if the entered number is a positive integer
         self.assertEqual(5, Food.get_positive_quantity(5))
-        self.assertFalse(-5, Food.get_positive_quantity(-5))
+        self.assertNotEqual(-5, Food.get_positive_quantity(-5))
 
     def test_dictionary(self):
         food1 = Food("chips")

@@ -29,18 +29,18 @@ class TestValidator(TestCase):
 
     def test_is_whole_number(self):
         # check that whole numbers with no ranges pass, including large ones
-        self.assertTrue(is_whole_number(2))
-        self.assertTrue(is_whole_number(-9))
-        self.assertTrue(is_whole_number(999999))
-        self.assertTrue(is_whole_number(12, range(0, 12)))
+        self.assertTrue(is_whole_number(2, range(0, 3)))
+        self.assertTrue(is_whole_number(-9, range(-10, 10)))
+        self.assertTrue(is_whole_number(999,range(0, 1000)))
+        self.assertTrue(is_whole_number(12, range(0, 13)))
         self.assertTrue(is_whole_number(-3, range(-5, 5)))
         # check that invalid ranges return false
         self.assertFalse(is_whole_number(-2, range(0, 3)))
         self.assertFalse(is_whole_number(7, range(-5, 5)))
         # check that floats return false, including with both valid and invalid ranges
-        self.assertFalse(is_whole_number(4.345))
-        self.assertFalse(is_whole_number(-.412))
-        self.assertFalse(is_whole_number(-.05, range(-10, 5)))
+        self.assertFalse(is_whole_number(4.345, range(0, 3)))
+        self.assertFalse(is_whole_number(-.412, range(5, 6)))
+        self.assertFalse(is_whole_number(-.05, range(1, 5)))
         self.assertFalse(is_whole_number(12.0, range(-1, 5)))
 
 

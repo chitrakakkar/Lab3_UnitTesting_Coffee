@@ -47,8 +47,8 @@ def call_snack():
     while True:
         snack_price = calculate_snack_price()
         sum_of_snack += snack_price
-        more_snack = input("DO you want anything more ? (Y/N)")
-        if get_string1_input(str(more_snack).upper()) == 'Y':
+        more_snack = get_string1_input(input("DO you want anything more ? (Y/N)"))
+        if str(more_snack).upper() == 'Y':
             continue
         elif str(more_snack).upper() == 'N':
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_snack, 2))
