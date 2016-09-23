@@ -13,8 +13,7 @@ def show_menu():
             '\nWhat do you want ??? : ')
 
     menu_choice = int(input(menu))
-    #while menu_choice not in range(1, 4):
-    while not is_whole_number(menu_choice, range(1,4)):
+    while not is_whole_number(menu_choice, range(1, 5)):
         menu_choice = int(input("Invalid entry, please select from the list !!!"))
     if menu_choice == 1:
             call_drink()
@@ -36,7 +35,7 @@ def call_drink():
             continue
 
         elif str(more_drink).upper() == 'N':
-            print("The total for all of the drinks is $", round(sum_of_drinks, 2))
+            print('\033[1m' + "The total-price for the drink is $" + '\033[0m', round(sum_of_drinks, 2))
             break
 
         else:
@@ -124,7 +123,6 @@ def calculate_snack_price():
     snack_quantity = get_user_int("enter the quantity")
     s = Food(snack_name)
     price = s.calculate_food_price(snack_quantity)
-    # calculates sum of all drinks
     return price
 
 
