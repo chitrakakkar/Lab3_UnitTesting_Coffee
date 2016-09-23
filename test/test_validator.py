@@ -28,7 +28,7 @@ class TestValidator(TestCase):
         self.assertFalse(get_user_int(0))
 
     def test_is_whole_number(self):
-        # check that whole numbers with no ranges pass, including large ones
+        # check that whole numbers with correct range passes
         self.assertTrue(is_whole_number(2, range(0, 3)))
         self.assertTrue(is_whole_number(-9, range(-10, 10)))
         self.assertTrue(is_whole_number(999,range(0, 1000)))

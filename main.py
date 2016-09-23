@@ -111,8 +111,8 @@ def calculate_drink_price():
     drink_name = get_drink()
     drink_size = get_size()
     # checks that the quantity is an integer
-    drink_quantity = input("enter the quantity")
-    if get_user_int(drink_quantity):
+    drink_quantity = get_user_int("enter the quantity")
+    if drink_quantity:
         d = Drink(drink_name, drink_size)
         drink_price = d.calculate_price(drink_quantity)
         return drink_price
@@ -121,8 +121,8 @@ def calculate_drink_price():
 def calculate_snack_price():
     snack_name = get_snack()
     # checks that the quantity is an integer
-    snack_quantity = input("enter the quantity")
-    if get_user_int(snack_quantity):
+    snack_quantity = get_user_int("enter the quantity")
+    if snack_quantity:
         s = Food(snack_name)
         price = s.calculate_food_price(snack_quantity)
         return price

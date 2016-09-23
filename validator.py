@@ -2,34 +2,43 @@
 for all input done """
 
 
-def get_user_int(number):
-    """Return an integer from the user
-    """
-    while True:
-        try:
-            number = int(number)
-            if number <= 0:
-                print("Enter a positive or greater than 0")
-                #continue
-        except ValueError:
-            print('You must enter a whole number.')
-            #continue
-        return number
+def is_int(number):
+    try:
+        int(number)
+        return True
+    except ValueError:
+        return False
 
-# def get_user_int(number, message):
+
+# def get_user_int(message):
 #     """Return an integer from the user
 #     """
 #     while True:
-#         user_input = input('{}'.format(message))
 #         try:
-#             number = int(user_input)
+#             number = int(number)
 #             if number <= 0:
 #                 print("Enter a positive or greater than 0")
-#                 continue
+#                 #continue
 #         except ValueError:
 #             print('You must enter a whole number.')
-#             continue
+#             #continue
 #         return number
+
+def get_user_int(message):
+    """Return an integer from the user
+    """
+    while True:
+        user_input = input('{}'.format(message))
+        try:
+            number = is_int(user_input)
+            if number <= 0:
+                print("Enter a positive or greater than 0")
+                continue
+        except ValueError:
+            print('You must enter a whole number.')
+            continue
+        return number
+
 
 def get_string1_input(string):
     while True:
