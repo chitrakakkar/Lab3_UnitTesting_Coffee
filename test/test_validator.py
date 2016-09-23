@@ -8,8 +8,12 @@ class TestValidator(TestCase):
     def test_get_user_string(self):
         # test if any string input are equal
         self.assertEqual("Hello", get_string1_input("Hello"))
+        # test if any string input are equal
+        self.assertEqual("Capstone", get_string1_input("Capstone"))
         # test if the string input are not equal
         self.assertNotEqual("  ", get_string1_input(""))
+        # test if the string input are not equal
+        self.assertNotEqual(" Java ", get_string1_input("C#"))
 
     def test_get_int(self):
         # test if an integer is returned
