@@ -2,32 +2,29 @@
 for all input done """
 
 
-def get_user_int(message):
+def get_user_int(number):
     """Return an integer from the user
     """
     while True:
-        user_input = input('{}: '.format(message))
         try:
-            number = int(user_input)
+            number = int(number)
             if number <= 0:
                 print("Enter a positive or greater than 0")
                 continue
         except ValueError:
             print('You must enter a whole number.')
-            continue
-        return number
+            #continue
+        break
+    return number
 
 
-def get_string_input(message):
-    """ Returns a string input !!! error msg if None"""
+def get_string1_input(string):
     while True:
-        user_input = input(('{}'.format(message)))
-
-        if user_input:
-            return user_input
-
+        if string:
+            return string
         else:
             print("You must enter something")
+            break
 
 
 def is_whole_number(number, valid_range=None):

@@ -30,7 +30,7 @@ def call_drink():
     while True:
         drink_price = calculate_drink_price()
         sum_of_drinks += drink_price
-        more_drink = get_string_input("DO you want anything more ? (Y/N)")
+        more_drink = get_string1_input(input("DO you want anything more ? (Y/N)"))
         if str(more_drink).upper() == 'Y':
             continue
 
@@ -47,8 +47,8 @@ def call_snack():
     while True:
         snack_price = calculate_snack_price()
         sum_of_snack += snack_price
-        more_snack = get_string_input("DO you want anything more ? (Y/N)")
-        if str(more_snack).upper() == 'Y':
+        more_snack = input("DO you want anything more ? (Y/N)")
+        if get_string1_input(str(more_snack).upper()) == 'Y':
             continue
         elif str(more_snack).upper() == 'N':
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_snack, 2))
@@ -63,8 +63,8 @@ def drink_and_snack():
         sum_of_items = 0
         drink_price = calculate_drink_price()
         sum_of_items += drink_price
-        more_options = get_string_input("DO you want anything more ? (Y/N)")
-        if str(more_options).upper() == 'Y':
+        more_options = input("DO you want anything more ? (Y/N)")
+        if get_string1_input(str(more_options).upper()) == 'Y':
             snack_price = calculate_snack_price()
             sum_of_items = sum_of_items + drink_price + snack_price
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_items, 2))
@@ -78,7 +78,7 @@ def get_drink():
         drink_list = Drink.products
         while True:
             print('\033[1m' + '\033[4m' + "Drink-List: " + '\033[0m', str(drink_list))
-            drink = get_string_input('\033[1m'+ "Enter the drink you want from the list"+ '\033[0m')
+            drink = get_string1_input(input('\033[1m' + "Enter the drink you want from the list"+ '\033[0m'))
             if drink in drink_list:
                 return drink
             else:
@@ -100,8 +100,8 @@ def get_snack():
     snack_list = Food.products
     while True:
         print('\033[1m' + '\033[4m' + "Snacks-List: " + '\033[0m', str(snack_list))
-        snack = get_string_input('\033[1m'+ "Enter the snack you want from the list"+ '\033[0m')
-        if str(snack) in snack_list:
+        snack = input('\033[1m' + "Enter the snack you want from the list"+ '\033[0m')
+        if get_string1_input(snack) in snack_list:
             return snack
         else:
             print('\033[91m' + '\033[1m' + "I'm sorry, we do not serve that here" + '\033[0m')
@@ -111,19 +111,21 @@ def calculate_drink_price():
     drink_name = get_drink()
     drink_size = get_size()
     # checks that the quantity is an integer
-    drink_quantity = get_user_int("enter the quantity")
-    d = Drink(drink_name, drink_size)
-    drink_price = d.calculate_price(drink_quantity)
-    return drink_price
+    drink_quantity = input("enter the quantity")
+    if get_user_int(drink_quantity):
+        d = Drink(drink_name, drink_size)
+        drink_price = d.calculate_price(drink_quantity)
+        return drink_price
 
 
 def calculate_snack_price():
     snack_name = get_snack()
     # checks that the quantity is an integer
-    snack_quantity = get_user_int("enter the quantity")
-    s = Food(snack_name)
-    price = s.calculate_food_price(snack_quantity)
-    return price
+    snack_quantity = input("enter the quantity")
+    if get_user_int(snack_quantity):
+        s = Food(snack_name)
+        price = s.calculate_food_price(snack_quantity)
+        return price
 
 
 def main():
