@@ -33,7 +33,7 @@ def is_whole_number(number, valid_range=None):
         if number_as_int in valid_range:
             return True
 
-        # if parsing as integer does not produce an error, check if it's in range if a range has been given
+        # check if the number is in range if a range has been given
         if valid_range and number_as_int in valid_range:
             return True
         else:
