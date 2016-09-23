@@ -14,13 +14,15 @@ class TestFood(TestCase):
         self.assertFalse(-5, Food.get_positive_quantity(-5))
 
     def test_dictionary(self):
+        food1 = Food("chips")
         dict1 = {"pizza-slice": 4.55,
                  "muffins": 3.78,
                  "crackers": 4.23,
                  "chips": 2.00,
                  "cookies":  3.63,
                  "ice-cream": 3.15}
-        self.assertEqual(dict1, Food.get_products())
+        # self.assertEqual(dict1, Food.get_products())
+        self.assertDictEqual(dict1, Food.get_products(food1))
 
     def test_food_list(self):
         expected = sorted(["pizza-slice",
