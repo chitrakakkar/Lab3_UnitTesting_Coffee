@@ -35,7 +35,7 @@ def get_drink():
         drink_list = Drink.products
         while True:
             print("Drink-List: ", str(drink_list) + "\n")
-            drink = get_string_input("Enter the drink you want from the list")
+            drink = get_string_input("Enter the drink you want from the list").lower()
             if drink in drink_list:
                 return drink
             else:
@@ -43,10 +43,10 @@ def get_drink():
 
 
 def get_size():
-    drink_sizes = ("LARGE", "MEDIUM", "SMALL")
+    drink_sizes = Drink.get_sizes()
     while True:
-        drink_size = input("What size do you want?")
-        if drink_size.upper() in drink_sizes:
+        drink_size = input("What size do you want?").upper()
+        if drink_size in drink_sizes:
             return drink_size
 
         else:
@@ -79,5 +79,5 @@ def main():
             print("Invalid entry")
 
 
-# if __name__ == '__main__':
-main()
+if __name__ == '__main__':
+    main()
