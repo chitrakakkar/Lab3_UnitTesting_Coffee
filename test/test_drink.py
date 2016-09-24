@@ -65,22 +65,21 @@ class TestDrink(TestCase):
             for price in drink_dict[drink]:
                 self.assertTrue(price > 0, 'Each price should be greater than 0.')
 
-    def test_products_prices_of_drinks_lass_than_ten_dollars(self):
-        # should return a dictionary of drinks.
-        drink_dict = Drink.get_products()
-        for drink in drink_dict:
-            for price in drink_dict[drink]:
-                self.assertTrue(price < 10, 'Each price should be less than 10.')
+    # def test_products_prices_of_drinks_lass_than_ten_dollars(self):
+    #     # should return a dictionary of drinks.
+    #     drink_dict = Drink.get_products()
+    #     for drink in drink_dict:
+    #         for price in drink_dict[drink]:
+    #             self.assertTrue(price < 10, 'Each price should be less than 10.')
 
     def test_valid_product_list(self):
-        drink1 = Drink("Mocha", "Small")
         dict1 = {"coffee": [5.45, 4.15, 3.25],
                  "mocha": [4.65, 3.78, 2.65],
                  "tea": [4.23, 3.34, 2.54],
                  "cappuccino": [4.85, 3.28, 2.95],
                  "espresso": [4.35, 3.63, 2.45]}
-        actual = Drink.get_products(drink1)
-        self.assertEqual(dict1, actual, "Product list has some error")
+        actual = sorted(Drink.get_products())
+        self.assertListEqual(sorted(dict1), actual, "Product list has some error")
 
 if __name__ == '__main__':
     TestCase.main()

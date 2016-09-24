@@ -33,7 +33,6 @@ def call_drink():
         more_drink = get_string1_input(input("DO you want anything more ? (Y/N)"))
         if str(more_drink).upper() == 'Y':
             continue
-
         elif str(more_drink).upper() == 'N':
             print('\033[1m' + "The total-price for the drink is $" + '\033[0m', round(sum_of_drinks, 2))
             break
@@ -112,20 +111,18 @@ def calculate_drink_price():
     drink_size = get_size()
     # checks that the quantity is an integer
     drink_quantity = get_user_int("enter the quantity")
-    if drink_quantity:
-        d = Drink(drink_name, drink_size)
-        drink_price = d.calculate_price(drink_quantity)
-        return drink_price
+    d = Drink(drink_name, drink_size)
+    drink_price = d.calculate_price(drink_quantity)
+    return drink_price
 
 
 def calculate_snack_price():
     snack_name = get_snack()
     # checks that the quantity is an integer
     snack_quantity = get_user_int("enter the quantity")
-    if snack_quantity:
-        s = Food(snack_name)
-        price = s.calculate_food_price(snack_quantity)
-        return price
+    s = Food(snack_name)
+    price = s.calculate_food_price(snack_quantity)
+    return price
 
 
 def main():

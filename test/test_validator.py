@@ -17,15 +17,18 @@ class TestValidator(TestCase):
 
     def test_get_int(self):
         # test if an integer is returned
-        self.assertEqual(2, get_user_int(2))
+        self.assertEqual(2, is_int(2)[1])
         # test if an integer is returned
-        self.assertEqual(1001, get_user_int(1001))
+        self.assertEqual(1001, is_int(1001)[1])
         # test if an integer is not equal
-        self.assertNotEqual(3, get_user_int(1))
+        self.assertNotEqual(3, is_int(1)[1])
         # test if an integer is not equal
-        self.assertNotEqual(999, get_user_int(99))
+        self.assertNotEqual(999, is_int(99)[1])
         # should be false as we need integer greater than 0
-        self.assertFalse(get_user_int(0))
+        self.assertFalse(is_int(0)[1])
+        self.assertTrue(is_int(5)[0])
+        self.assertTrue(is_int(100)[0])
+
 
     def test_is_whole_number(self):
         # check that whole numbers with correct range passes

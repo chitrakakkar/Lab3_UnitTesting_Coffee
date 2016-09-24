@@ -5,9 +5,9 @@ for all input done """
 def is_int(number):
     try:
         int(number)
-        return True
+        return (True, int(number))
     except ValueError:
-        return False
+        return (False, 0)
 
 
 # def get_user_int(message):
@@ -30,7 +30,7 @@ def get_user_int(message):
     while True:
         user_input = input('{}'.format(message))
         try:
-            number = is_int(user_input)
+            number = is_int(user_input)[1]
             if number <= 0:
                 print("Enter a positive or greater than 0")
                 continue
