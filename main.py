@@ -6,6 +6,9 @@ from validator import *
 
 
 def show_menu():
+    """ displays the menu for the user
+    checks if user has chosen the right choice from the list
+    and calls methods to complete the action"""
     menu = ('\t1) choose a drink\n'
             '\t2) buy a snack\n'
             '\t3) Both'
@@ -26,6 +29,8 @@ def show_menu():
 
 
 def call_drink():
+    """ gets the drink-price and add it to the sum for all the drinks chosen
+    """
     sum_of_drinks = 0
     while True:
         drink_price = calculate_drink_price()
@@ -42,6 +47,7 @@ def call_drink():
 
 
 def call_snack():
+    """ gets the snack-price and add it to the sum for all snacks chosen"""
     sum_of_snack = 0
     while True:
         snack_price = calculate_snack_price()
@@ -58,6 +64,7 @@ def call_snack():
 
 
 def drink_and_snack():
+    """ calculate both drink and snacks list once"""
     while True:
         sum_of_items = 0
         drink_price = calculate_drink_price()
@@ -74,6 +81,8 @@ def drink_and_snack():
 
 
 def get_drink():
+        """ takes input from the user and return if in list
+        else displays an error message"""
         drink_list = Drink.products
         while True:
             print('\033[1m' + '\033[4m' + "Drink-List: " + '\033[0m', str(drink_list))
@@ -85,6 +94,8 @@ def get_drink():
 
 
 def get_size():
+    """ takes input from the user and returns the size if in the expected list
+    else error message"""
     drink_sizes = Drink.get_sizes()
     while True:
         drink_size = input("What size do you want?").upper()
@@ -96,6 +107,8 @@ def get_size():
 
 
 def get_snack():
+    """ gets  user input for snack selection
+    if not , error message"""
     snack_list = Food.products
     while True:
         print('\033[1m' + '\033[4m' + "Snacks-List: " + '\033[0m', str(snack_list))
@@ -107,6 +120,7 @@ def get_snack():
 
 
 def calculate_drink_price():
+    """" gets user input for drink object and calculate the price """
     drink_name = get_drink()
     drink_size = get_size()
     # checks that the quantity is an integer
@@ -117,6 +131,7 @@ def calculate_drink_price():
 
 
 def calculate_snack_price():
+    """ gets user input for snack object and calculate the price"""
     snack_name = get_snack()
     # checks that the quantity is an integer
     snack_quantity = get_user_int("enter the quantity")

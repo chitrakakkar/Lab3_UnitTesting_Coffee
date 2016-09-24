@@ -16,7 +16,7 @@ class TestValidator(TestCase):
         self.assertNotEqual(" Java ", get_string1_input("C#"))
 
     def test_get_int(self):
-        # test if an integer is returned
+        # test if an integer is returned, is_int [1] returns a number
         self.assertEqual(2, is_int(2)[1])
         # test if an integer is returned
         self.assertEqual(1001, is_int(1001)[1])
@@ -26,9 +26,9 @@ class TestValidator(TestCase):
         self.assertNotEqual(999, is_int(99)[1])
         # should be false as we need integer greater than 0
         self.assertFalse(is_int(0)[1])
+        # tests if is_int[0] returns a true if it's an int
         self.assertTrue(is_int(5)[0])
         self.assertTrue(is_int(100)[0])
-
 
     def test_is_whole_number(self):
         # check that whole numbers with correct range passes
@@ -40,7 +40,7 @@ class TestValidator(TestCase):
         # check that invalid ranges return false
         self.assertFalse(is_whole_number(-2, range(0, 3)))
         self.assertFalse(is_whole_number(7, range(-5, 5)))
-        # check that floats return false, including with both valid and invalid ranges
+        # check that floats return false
         self.assertFalse(is_whole_number(4.345, range(0, 3)))
         self.assertFalse(is_whole_number(-.412, range(5, 6)))
         self.assertFalse(is_whole_number(-.05, range(1, 5)))

@@ -3,18 +3,21 @@ from main import *
 
 
 class TestDrink(TestCase):
+    # tests if the price for large coffee is 5.45
     def test_calculate_quantity_price(self):
         drink1 = Drink("Coffee", "Large")
         expected = 5.45
         actual = drink1.calculate_price(1)
         self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
 
+    # test if the price for small tea is 5.08
     def test2_calculate_quantity_price(self):
         drink1 = Drink("Tea", "small")
         expected = 5.08
         actual = drink1.calculate_price(2)
         self.assertEqual(expected, actual, "Large coffee should be 5.45 ")
 
+    # tests if the number is an integer
     def test_quantity_int(self):
         # checks if the quantity is an integer
         drink1 = Drink("Tea", "Small")
@@ -22,6 +25,7 @@ class TestDrink(TestCase):
         actual = drink1.get_int_quantity(2)
         self.assertEqual(expected, actual, " Quantity should be an integer")
 
+    # tests if the number is positive
     def test_positive_quantity(self):
         # Quantity should be +ve
         drink1 = Drink(" Cappuccino", " Large")
@@ -29,6 +33,7 @@ class TestDrink(TestCase):
         actual = drink1.get_positive_quantity(1)
         self.assertEqual(expected, actual, " Quantity should be positive integer")
 
+    # tests if the price is valid
     def test_valid_price_check(self):
         # checks if the object has valid price
         drink1 = Drink("Mocha", " Small")
@@ -36,6 +41,7 @@ class TestDrink(TestCase):
         actual = drink1.products["mocha"][2]
         self.assertEqual(expected, actual, " The price for small mocha should be $2.65")
 
+    # checks if the size for the drink is upper
     def test_size_upper_Case(self):
         # tests if the size entered is in upper-case
         drink1 = Drink("Mocha", "Medium")
@@ -43,6 +49,7 @@ class TestDrink(TestCase):
         actual = drink1.get_size__upper_case(drink1.size)
         self.assertEqual(expected, actual, " Size should be upper case ")
 
+    # test the drink-list
     def test_valid_drink_check(self):
         # tests if the drink name is valid
         drink1 = Drink("Tea", "Medium")
@@ -72,6 +79,7 @@ class TestDrink(TestCase):
     #         for price in drink_dict[drink]:
     #             self.assertTrue(price < 10, 'Each price should be less than 10.')
 
+    # tests the dictionary
     def test_valid_product_list(self):
         dict1 = {"coffee": [5.45, 4.15, 3.25],
                  "mocha": [4.65, 3.78, 2.65],
