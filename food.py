@@ -1,3 +1,8 @@
+""" this class contains a dictionary of snacks with price
+calculate the price method
+"""
+
+
 class Food:
     products = {"pizza-slice": 4.55,
                 "muffins": 3.78,
@@ -13,6 +18,7 @@ class Food:
         return self.products
 
     def calculate_food_price(self, quantity):
+        """ calculate the price for the snacks based on the quantity"""
         for key, data in self.products.items():
             if key == str(self.name).strip(" ").lower():
                 total_price = self.get_int_quantity(quantity) * float(data)
