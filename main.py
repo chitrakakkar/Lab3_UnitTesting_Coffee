@@ -40,7 +40,8 @@ def call_drink():
             continue
         elif str(more_drink).upper() == 'N':
             print('\033[1m' + "The total-price for the drink is $" + '\033[0m', round(sum_of_drinks, 2))
-            break
+            #break
+            show_menu()
 
         else:
             print("Invalid entry")
@@ -57,7 +58,8 @@ def call_snack():
             continue
         elif str(more_snack).upper() == 'N':
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_snack, 2))
-            break
+            #break
+            show_menu()
 
         else:
             print("Invalid entry")
@@ -74,10 +76,12 @@ def drink_and_snack():
             snack_price = calculate_snack_price()
             sum_of_items = sum_of_items + drink_price + snack_price
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_items, 2))
-            break
+            #break
+            show_menu()
         else:
             print('\033[1m' + "The total-price for the snacks is $" + '\033[0m', round(sum_of_items, 2))
-            break
+            # break
+            show_menu()
 
 
 def get_drink():
