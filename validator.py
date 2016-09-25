@@ -10,20 +10,6 @@ def is_int(number):
         return (False, 0)
 
 
-# def get_user_int(message):
-#     """Return an integer from the user
-#     """
-#     while True:
-#         try:
-#             number = int(number)
-#             if number <= 0:
-#                 print("Enter a positive or greater than 0")
-#                 #continue
-#         except ValueError:
-#             print('You must enter a whole number.')
-#             #continue
-#         return number
-
 def get_user_int(message):
     """Return an integer from the user
     """
